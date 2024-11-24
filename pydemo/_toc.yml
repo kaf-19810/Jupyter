@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: test
+  sections:
+	- file: markdown
+	- file: notebooks
+	- file: markdown-notebooks
+- file: 01_std_lib2
+- file: 01_pytest_fixtures
+- file: 02_idiomatic_dicts
+- file: 03_idiomatic_misc1
+- file: 04_idiomatic_misc2
