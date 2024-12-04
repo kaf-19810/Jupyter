@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Markdown Files &#8212; py book demo</title>
+    <title>Debugging with pdb &#8212; py book demo</title>
   
   
   
@@ -60,11 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '14_debugging';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="next" title="Goodies of the Python Standard Library" href="15_std_lib.html" />
+    <link rel="prev" title="Modules and packages" href="13_modules_and_packages.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -169,7 +169,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_strings.html">Strings</a></li>
@@ -184,7 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="11_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_exceptions.html">Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_modules_and_packages.html">Modules and packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_debugging.html">Debugging with <code class="docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Debugging with <code class="docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_std_lib.html">Goodies of the Python Standard Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_testing2.html">Testing with pytest - part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_venv.html">Virtual environment</a></li>
@@ -260,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkdown.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F14_debugging.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,7 +290,7 @@
       
       
       
-      <li><a href="_sources/markdown.md" target="_blank"
+      <li><a href="_sources/14_debugging.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +300,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -366,7 +366,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Markdown Files</h1>
+    <h1>Debugging with pdb</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,10 +376,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-myst">What is MyST?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-roles-and-directives">Sample Roles and Directives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breakpoint"><code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-see-how-it-works">Let’s see how it works</a></li>
 </ul>
             </nav>
         </div>
@@ -391,59 +390,82 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="markdown-files">
-<h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Link to this heading">#</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Link to this heading">#</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="debugging-with-pdb">
+<h1>Debugging with <a class="reference external" href="https://docs.python.org/3/library/pdb.html#module-pdb"><code class="docutils literal notranslate"><span class="pre">pdb</span></code></a><a class="headerlink" href="#debugging-with-pdb" title="Link to this heading">#</a></h1>
+<p>Your program does not always behave how you would expect it to behave. If the origin of the mistake is unclear, debugging is usually the most effective to find the root cause of the unexpected behavior. The Python Standard Library has a built-in debugger which is a powerful tool for solving any issues related to your code.</p>
+<section id="breakpoint">
+<h2><code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code><a class="headerlink" href="#breakpoint" title="Link to this heading">#</a></h2>
+<p>The basic use case for debugging is that you want to stop the execution of your program at some certain point and monitor variable values or program execution in general from that specific point onward. You stop the execution at the point you want by setting a breakpoint into code by <code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code>.</p>
+<p>When you execute your program, the execution will stop at this point and will enter to interactive debugger session. You can add as many breakpoints into your code as you want.</p>
 </section>
-<section id="sample-roles-and-directives">
-<h2>Sample Roles and Directives<a class="headerlink" href="#sample-roles-and-directives" title="Link to this heading">#</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a>.</p>
+<section id="useful-commands">
+<h2>Useful commands<a class="headerlink" href="#useful-commands" title="Link to this heading">#</a></h2>
+<p>See the full list <a class="reference external" href="https://docs.python.org/3/library/pdb.html#debugger-commands">here</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">h</span></code> or <code class="docutils literal notranslate"><span class="pre">help</span></code>: Prints a list of available commands. If you give an argument, e.g. <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">continue</span></code>, prints help of the <code class="docutils literal notranslate"><span class="pre">continue</span></code> command.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code>: List a piece of code around the current position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">next</span></code>: Execute next line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> or <code class="docutils literal notranslate"><span class="pre">step</span></code>: Same as <code class="docutils literal notranslate"><span class="pre">next</span></code> but “steps into” the function called in the next line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> or <code class="docutils literal notranslate"><span class="pre">continue</span></code>: Continue execution until next breakpoint.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code> or <code class="docutils literal notranslate"><span class="pre">return</span></code>: Continue execution until the return of current function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">q</span></code> or <code class="docutils literal notranslate"><span class="pre">quit</span></code>: Quit debugger and abort program execution.</p></li>
+</ul>
+<p>Note that you can see the value of any variable by typing the variable name during the debugging session. You can also execute arbitrary code during the debugging session.</p>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[<a class="reference internal" href="#id3" title="Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In International Conference on Cognitive Neuroscience. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.">HdHPK14</a>]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HdHPK14</a><span class="fn-bracket">]</span></span>
-<p>Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In <em>International Conference on Cognitive Neuroscience</em>. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.</p>
+<section id="let-s-see-how-it-works">
+<h2>Let’s see how it works<a class="headerlink" href="#let-s-see-how-it-works" title="Link to this heading">#</a></h2>
+<p>Uncomment the <code class="docutils literal notranslate"><span class="pre">Pdb().set_trace()</span></code> (this is the Jupyter notebook equivalent for <code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code>) lines and execute the cell. Execute the program line by line by using the commands defined above. Try all the above mentioned commands at least once. Pay attention to the difference between <code class="docutils literal notranslate"><span class="pre">n</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.debugger</span> <span class="kn">import</span> <span class="n">Pdb</span>
+
+
+<span class="k">class</span> <span class="nc">SuperGreeter</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">people_to_greet</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">people</span> <span class="o">=</span> <span class="n">people_to_greet</span>
+
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">people</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">person</span><span class="o">.</span><span class="n">islower</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_greet_street_style</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_greet_hawaii</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_greet_polite</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_greet_polite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">greeting</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;G&#39;day </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! How are you doing?&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_greet_street_style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c1"># Pdb().set_trace() # UNCOMMENT</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WASSUP </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!?&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_greet_hawaii</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aloha </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span> <span class="s2">&quot;Donald&quot;</span><span class="p">,</span> <span class="s2">&quot;Lisa&quot;</span><span class="p">,</span> <span class="s2">&quot;alex&quot;</span><span class="p">]</span>
+    <span class="c1"># Pdb().set_trace()  # UNCOMMENT</span>
+    <span class="n">greeter</span> <span class="o">=</span> <span class="n">SuperGreeter</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+    <span class="n">greeter</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>
+
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aloha John Doe!
+G&#39;day Donald! How are you doing?
+G&#39;day Lisa! How are you doing?
+WASSUP ALEX!?
+</pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
 </section>
 </section>
 
@@ -478,20 +500,20 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="13_modules_and_packages.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Modules and packages</p>
       </div>
     </a>
     <a class="right-next"
-       href="notebooks.html"
+       href="15_std_lib.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Content with notebooks</p>
+        <p class="prev-next-title">Goodies of the Python Standard Library</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -512,10 +534,9 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-myst">What is MyST?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-roles-and-directives">Sample Roles and Directives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breakpoint"><code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-see-how-it-works">Let’s see how it works</a></li>
 </ul>
   </nav></div>
 

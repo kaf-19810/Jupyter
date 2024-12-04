@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; py book demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modules and packages &#8212; py book demo</title>
   
   
   
@@ -59,9 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '13_modules_and_packages';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Debugging with pdb" href="14_debugging.html" />
+    <link rel="prev" title="Exceptions" href="12_exceptions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -112,8 +115,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -167,7 +168,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -182,7 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="10_file_io.html">文件 I/O操作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_exceptions.html">Exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_modules_and_packages.html">Modules and packages</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modules and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14_debugging.html">Debugging with <code class="docutils literal notranslate"><span class="pre">pdb</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_std_lib.html">Goodies of the Python Standard Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_testing2.html">Testing with pytest - part 2</a></li>
@@ -259,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_modules_and_packages.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -271,6 +272,54 @@
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/13_modules_and_packages.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -304,7 +353,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -315,11 +366,23 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Modules and packages</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-to-organize-your-code-into-modules-and-packages">Why to organize your code into modules and packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">How to use</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">Importing</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -329,13 +392,105 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="modules-and-packages">
+<h1><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#modules">Modules and packages</a><a class="headerlink" href="#modules-and-packages" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Module is a Python source code file, i.e. a file with .py extension.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Package is a directory which contains <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file and can contain python modules and other packages.</p>
+</div></blockquote>
+<section id="why-to-organize-your-code-into-modules-and-packages">
+<h2>Why to organize your code into modules and packages<a class="headerlink" href="#why-to-organize-your-code-into-modules-and-packages" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Maintainability</p></li>
+<li><p>Reusability</p></li>
+<li><p>Namespacing</p></li>
+<li><p>People unfamiliar with your project can get a clear overview just by looking at the directory structure of your project</p></li>
+<li><p>Searching for certain functionality or class is easy</p></li>
+</ul>
+</section>
+<section id="how-to-use">
+<h2>How to use<a class="headerlink" href="#how-to-use" title="Link to this heading">#</a></h2>
+<p>Let’s use the following directory structure as an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">food_store</span><span class="o">/</span>
+    <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+    
+    <span class="n">product</span><span class="o">/</span>
+        <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+        
+        <span class="n">fruit</span><span class="o">/</span>
+            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">apple</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">banana</span><span class="o">.</span><span class="n">py</span>
+            
+        <span class="n">drink</span><span class="o">/</span>
+            <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">juice</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">milk</span><span class="o">.</span><span class="n">py</span>
+            <span class="n">beer</span><span class="o">.</span><span class="n">py</span>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+    <span class="n">cashier</span><span class="o">/</span>
+        <span class="n">__ini__</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">receipt</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">calculator</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
 </div>
+<p>Let’s consider that <a class="reference external" href="http://banana.py">banana.py</a> file contains:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">get_available_brands</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;chiquita&quot;</span><span class="p">]</span>
 
+
+<span class="k">class</span> <span class="nc">Banana</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="o">=</span><span class="s2">&quot;chiquita&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">brand</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">get_available_brands</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown brand: </span><span class="si">{</span><span class="n">brand</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_brand</span> <span class="o">=</span> <span class="n">brand</span>
+     
+</pre></div>
+</div>
+<section id="importing">
+<h3>Importing<a class="headerlink" href="#importing" title="Link to this heading">#</a></h3>
+<p>Let’s say that we need access <code class="docutils literal notranslate"><span class="pre">Banana</span></code> class from <a class="reference external" href="http://banana.py">banana.py</a> file inside <a class="reference external" href="http://receipt.py">receipt.py</a>. We can achive this by importing at the beginning of <a class="reference external" href="http://receipt.py">receipt.py</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">food_store.product.fruit.banana</span> <span class="kn">import</span> <span class="n">Banana</span>
+
+<span class="c1"># then it&#39;s used like this</span>
+<span class="n">my_banana</span> <span class="o">=</span> <span class="n">Banana</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If we need to access multiple classes or functions from <a class="reference external" href="http://banana.py">banana.py</a> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">food_store.product.fruit</span> <span class="kn">import</span> <span class="n">banana</span>
+
+<span class="c1"># then it&#39;s used like this</span>
+<span class="n">brands</span> <span class="o">=</span> <span class="n">banana</span><span class="o">.</span><span class="n">get_available_brands</span><span class="p">()</span>
+<span class="n">my_banana</span> <span class="o">=</span> <span class="n">banana</span><span class="o">.</span><span class="n">Banana</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>A comprehensive introduction to modules and packages can be found <a class="reference external" href="https://realpython.com/python-modules-packages/">here</a>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -347,12 +502,50 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="12_exceptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exceptions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="14_debugging.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Debugging with <code class="docutils literal notranslate"><span class="pre">pdb</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-to-organize-your-code-into-modules-and-packages">Why to organize your code into modules and packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">How to use</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing">Importing</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
