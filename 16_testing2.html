@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -164,14 +164,11 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Python3-book化
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_strings.html">Strings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_numbers.html">Numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_conditionals.html">Conditionals</a></li>
@@ -189,6 +186,13 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Testing with pytest - part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_venv.html">Virtual environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_project_structure.html">Project structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_best_practices.html">Best practices in development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_idiomatic_loops.html">Idiomatic loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_pytest_fixtures.html"><code class="docutils literal notranslate"><span class="pre">pytest</span></code>测试框架的fixture高效使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_std_lib2.html">Python标准库的优点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_idiomatic_dicts.html">成语词典</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_idiomatic_misc1.html">Idiomatic Python - miscellaneous part 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_idiomatic_misc2.html">Idiomatic Python - miscellaneous part 2</a></li>
 </ul>
 
     </div>
@@ -243,7 +247,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/kaf-19810/Jupyter.github.io" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -260,7 +264,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F16_testing2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/kaf-19810/Jupyter.github.io/issues/new?title=Issue%20on%20page%20%2F16_testing2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,9 +413,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytest in /home/kaf/myenv/lib/python3.11/site-packages (8.3.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: iniconfig in /home/kaf/myenv/lib/python3.11/site-packages (from pytest) (2.0.0)
+Requirement already satisfied: iniconfig in /home/kaf/myenv/lib/python3.11/site-packages (from pytest) (2.0.0)
 Requirement already satisfied: packaging in /home/kaf/myenv/lib/python3.11/site-packages (from pytest) (24.2)
 Requirement already satisfied: pluggy&lt;2,&gt;=1.5 in /home/kaf/myenv/lib/python3.11/site-packages (from pytest) (1.5.0)
 </pre></div>
@@ -437,13 +439,11 @@ Requirement already satisfied: pexpect&gt;4.3 in /home/kaf/myenv/lib/python3.11/
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.4 in /home/kaf/myenv/lib/python3.11/site-packages (from jedi&gt;=0.16-&gt;ipython-&gt;ipytest) (0.8.4)
 Requirement already satisfied: ptyprocess&gt;=0.5 in /home/kaf/myenv/lib/python3.11/site-packages (from pexpect&gt;4.3-&gt;ipython-&gt;ipytest) (0.7.0)
+Requirement already satisfied: wcwidth in /home/kaf/myenv/lib/python3.11/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython-&gt;ipytest) (0.2.13)
+Requirement already satisfied: executing&gt;=1.2.0 in /home/kaf/myenv/lib/python3.11/site-packages (from stack-data-&gt;ipython-&gt;ipytest) (2.1.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wcwidth in /home/kaf/myenv/lib/python3.11/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython-&gt;ipytest) (0.2.13)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: executing&gt;=1.2.0 in /home/kaf/myenv/lib/python3.11/site-packages (from stack-data-&gt;ipython-&gt;ipytest) (2.1.0)
-Requirement already satisfied: asttokens&gt;=2.1.0 in /home/kaf/myenv/lib/python3.11/site-packages (from stack-data-&gt;ipython-&gt;ipytest) (2.4.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: asttokens&gt;=2.1.0 in /home/kaf/myenv/lib/python3.11/site-packages (from stack-data-&gt;ipython-&gt;ipytest) (2.4.1)
 Requirement already satisfied: pure-eval in /home/kaf/myenv/lib/python3.11/site-packages (from stack-data-&gt;ipython-&gt;ipytest) (0.2.3)
 Requirement already satisfied: six&gt;=1.12.0 in /home/kaf/myenv/lib/python3.11/site-packages (from asttokens&gt;=2.1.0-&gt;stack-data-&gt;ipython-&gt;ipytest) (1.16.0)
 </pre></div>
@@ -590,7 +590,7 @@ def test_replace_names(original, new_name, expected):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">                                                                                          [100%]</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">3 passed</span><span class=" -Color -Color-Green"> in 0.04s</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">3 passed</span><span class=" -Color -Color-Green"> in 0.02s</span>
 </pre></div>
 </div>
 </div>
@@ -679,7 +679,7 @@ def test_replace_names(original, new_name, expected):
   <div class="footer-item">
     
 <p class="component-author">
-By Kaf
+By Jupyter
 </p>
 
   </div>
